@@ -36,12 +36,12 @@
     "reddit-data": {
       "tags": []
     },
-    "reddit-text-to-speech": {
+    "web-client": {
       "tags": []
     },
-    "reddit-text-to-speech-e2e": {
+    "web-client-e2e": {
       "tags": [],
-      "implicitDependencies": ["reddit-text-to-speech"]
+      "implicitDependencies": ["web-client"]
     }
   }
 }

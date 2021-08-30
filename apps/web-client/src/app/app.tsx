@@ -5,24 +5,15 @@ import {
   Typography,
 } from '@material-ui/core';
 import { LoadingButton } from '@material-ui/lab';
-import { Message } from '@reddit-text-to-speech/api-interfaces';
 import { useRedditPostQuery } from '@reddit-text-to-speech/reddit-data';
 import React, { useEffect, useState } from 'react';
 
 export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
-
   const [redditPostUrl, setRedditPostUrl] = useState('');
 
   const redditPostQuery = useRedditPostQuery({
-    url: redditPostUrl,
+    postId: redditPostUrl,
   });
-
-  useEffect(() => {
-    fetch('/api')
-      .then((r) => r.json())
-      .then(setMessage);
-  }, []);
 
   useEffect(() => {
     console.log(redditPostUrl);

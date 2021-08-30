@@ -1,8 +1,11 @@
 import * as express from 'express';
 import { Message } from '@reddit-text-to-speech/api-interfaces';
-import { environment } from './environments/environment';
+import * as path from 'path';
+
+const CLIENT_BUILD_PATH = path.join(__dirname, '../web-client');
 
 const app = express();
+app.use(express.static(CLIENT_BUILD_PATH));
 
 const greeting: Message = { message: 'Welcome to api!' };
 
@@ -12,6 +15,10 @@ app.get('/api', (req, res) => {
 
 app.get('/reddit', (req, res) => {
   res.send('/reddit');
+});
+
+app.get('*', (request, response) => {
+  response.sendFile(path.join(CLIENT_BUILD_PATH, 'index.html'));
 });
 
 const port = process.env.port || 3333;

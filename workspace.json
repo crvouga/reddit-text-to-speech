@@ -85,23 +85,23 @@
         }
       }
     },
-    "reddit-text-to-speech": {
-      "root": "apps/reddit-text-to-speech",
-      "sourceRoot": "apps/reddit-text-to-speech/src",
+    "web-client": {
+      "root": "apps/web-client",
+      "sourceRoot": "apps/web-client/src",
       "projectType": "application",
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/reddit-text-to-speech",
-            "index": "apps/reddit-text-to-speech/src/index.html",
-            "main": "apps/reddit-text-to-speech/src/main.tsx",
-            "polyfills": "apps/reddit-text-to-speech/src/polyfills.ts",
-            "tsConfig": "apps/reddit-text-to-speech/tsconfig.app.json",
+            "outputPath": "dist/apps/web-client",
+            "index": "apps/web-client/src/index.html",
+            "main": "apps/web-client/src/main.tsx",
+            "polyfills": "apps/web-client/src/polyfills.ts",
+            "tsConfig": "apps/web-client/tsconfig.app.json",
             "assets": [
-              "apps/reddit-text-to-speech/src/favicon.ico",
-              "apps/reddit-text-to-speech/src/assets"
+              "apps/web-client/src/favicon.ico",
+              "apps/web-client/src/assets"
             ],
             "styles": [],
             "scripts": [],
@@ -111,8 +111,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/reddit-text-to-speech/src/environments/environment.ts",
-                  "with": "apps/reddit-text-to-speech/src/environments/environment.prod.ts"
+                  "replace": "apps/web-client/src/environments/environment.ts",
+                  "with": "apps/web-client/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -135,13 +135,13 @@
         "serve": {
           "executor": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "reddit-text-to-speech:build",
+            "buildTarget": "web-client:build",
             "hmr": true,
-            "proxyConfig": "apps/reddit-text-to-speech/proxy.conf.json"
+            "proxyConfig": "apps/web-client/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "buildTarget": "reddit-text-to-speech:build:production",
+              "buildTarget": "web-client:build:production",
               "hmr": false
             }
           }
@@ -149,43 +149,41 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/reddit-text-to-speech/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/web-client/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/reddit-text-to-speech"],
+          "outputs": ["coverage/apps/web-client"],
           "options": {
-            "jestConfig": "apps/reddit-text-to-speech/jest.config.js",
+            "jestConfig": "apps/web-client/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "reddit-text-to-speech-e2e": {
-      "root": "apps/reddit-text-to-speech-e2e",
-      "sourceRoot": "apps/reddit-text-to-speech-e2e/src",
+    "web-client-e2e": {
+      "root": "apps/web-client-e2e",
+      "sourceRoot": "apps/web-client-e2e/src",
       "projectType": "application",
       "targets": {
         "e2e": {
           "executor": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/reddit-text-to-speech-e2e/cypress.json",
-            "devServerTarget": "reddit-text-to-speech:serve",
-            "tsConfig": "apps/reddit-text-to-speech-e2e/tsconfig.json"
+            "cypressConfig": "apps/web-client-e2e/cypress.json",
+            "devServerTarget": "web-client:serve",
+            "tsConfig": "apps/web-client-e2e/tsconfig.json"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "reddit-text-to-speech:serve:production"
+              "devServerTarget": "web-client:serve:production"
             }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/reddit-text-to-speech-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/web-client-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -210,5 +208,5 @@
       }
     }
   },
-  "defaultProject": "reddit-text-to-speech"
+  "defaultProject": "web-client"
 }

@@ -1,19 +1,20 @@
 import { useQuery } from 'react-query';
 import { createRedditAPI } from './reddit-api';
 
-const client = createRedditAPI();
+const redditAPI = createRedditAPI();
 
-const getRedditPost = async ({ url }: { url: string }) => {
-  const response = client({
-    method: 'GET',
-  });
-  return {
-    url,
-  };
+type IRedditListing = {
+  id: string;
 };
 
-export const useRedditPostQuery = ({ url }: { url: string }) => {
-  return useQuery([url], () => {
-    return getRedditPost({ url });
+const getRedditPost = async ({ postId }: { postId: string }) => {
+  const response = redditAPI.get<IRedditListing>(`/post/${postId}`);
+
+  return response;
+};
+
+export const useRedditPostQuery = ({ postId }: { postId: string }) => {
+  return useQuery([postId], () => {
+    return getRedditPost({ postId });
   });
 };

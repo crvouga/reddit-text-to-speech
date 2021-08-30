@@ -1,10 +1,10 @@
 module.exports = {
-  displayName: 'reddit-text-to-speech',
+  displayName: 'web-client',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
     '^.+\\.[tj]sx?$': 'babel-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/reddit-text-to-speech',
+  coverageDirectory: '../../coverage/apps/web-client',
 };
