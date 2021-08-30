@@ -6,18 +6,8 @@ import {
 } from '@material-ui/core';
 import { LoadingButton } from '@material-ui/lab';
 import { Message } from '@reddit-text-to-speech/api-interfaces';
+import { useRedditPostQuery } from '@reddit-text-to-speech/reddit-data';
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-
-const getRedditPost = async ({ url }: { url: string }) => {
-  return {};
-};
-
-const useRedditPostQuery = ({ url }: { url: string }) => {
-  return useQuery([url], () => {
-    return getRedditPost({ url });
-  });
-};
 
 export const App = () => {
   const [m, setMessage] = useState<Message>({ message: '' });
@@ -63,6 +53,8 @@ export const App = () => {
             setRedditPostUrl(event.target.value);
           }}
         />
+
+        {JSON.stringify(redditPostQuery, null, 4)}
 
         <LoadingButton
           fullWidth

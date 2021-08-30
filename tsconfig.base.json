@@ -17,7 +17,8 @@
     "paths": {
       "@reddit-text-to-speech/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
-      ]
+      ],
+      "@reddit-text-to-speech/reddit-data": ["libs/reddit-data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

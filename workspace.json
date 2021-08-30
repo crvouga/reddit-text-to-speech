@@ -64,6 +64,27 @@
         }
       }
     },
+    "reddit-data": {
+      "root": "libs/reddit-data",
+      "sourceRoot": "libs/reddit-data/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/reddit-data/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/reddit-data"],
+          "options": {
+            "jestConfig": "libs/reddit-data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "reddit-text-to-speech": {
       "root": "apps/reddit-text-to-speech",
       "sourceRoot": "apps/reddit-text-to-speech/src",
