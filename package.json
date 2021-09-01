@@ -6,7 +6,8 @@
     "start": "node dist/apps/api/main.js",
     "build": "yarn nx run-many --target=build --projects=web-client,api --parallel=true",
     "dev": "nx run-many --parallel --target=serve --projects=web-client,api",
-    "test": "nx test"
+    "test": "nx test",
+    "logs": "heroku logs --tail --app reddit-text-to-speech"
   },
   "private": true,
   "dependencies": {
